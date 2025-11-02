@@ -160,7 +160,36 @@ console.log(sum11);
 // ● 約数の個数 と 平方根
 // https://qiita.com/Haru_K0720/items/b0fb9c4703af6b09d363
 
-// Day12（2025.11.02）
+// Day12（2025.11.02）16:08～16:18 10分
 // 1 から N までの整数を順番に出力します。
 // ただし、以下の条件を満たす場合は数字の代わりに文字列を出力してください。
 // （FizzBuzz問題）
+// 3の倍数 → "Fizz"
+// 5の倍数 → "Buzz"
+// 3と5の両方の倍数 → "FizzBuzz"
+
+const N12 = 15;
+
+for( let i = 1; i <= N12; i++ ){
+    if( i % 15 === 0 ) {
+        console.log("FizzBuzz");
+    } else if( i % 5 === 0 ) {
+        console.log("Buzz");
+    } else if( i % 3 === 0 ) {
+        console.log("Fizz");
+    } else {
+        console.log(i);
+    }
+}
+
+// 正解👏
+// 上に書いたコードから処理していくから、15を先に割ることが正しい。
+// 5とか3とかにすると、「FizzBuzz」が出てこなくなる。
+
+// ちなみに別解(ちょっと見づらいけど笑) ↓↓↓
+// for(let i=1;i<=15;i++)
+//   console.log(i%15===0?"FizzBuzz":i%5===0?"Buzz":i%3===0?"Fizz":i);
+
+// Day13（2025.11.03）
+// 正の整数 N13 が与えられます。
+// その 各桁の数字の合計 を求めてください。
