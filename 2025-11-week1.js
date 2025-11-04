@@ -40,6 +40,54 @@ console.log(func13(123));
 
 // オススメはスプレッド構文らしい。
 
-// Day14（2025.11.04）
+// Day14（2025.11.04）15:48～16:08 20分
 // 正の整数 N が与えられます。
 // この数の 各桁を掛け合わせた結果 を出力してください。
+
+function func14(n) {
+    return [...String(n)].reduce((a, c) => a * c, 1);
+}
+
+console.log(func14(123));
+
+// 正解👏
+// 別解もいくつか提示されているので記載。
+
+// 1) ループ版
+// function func14_loop(n) {
+//   let prod = 1;
+//   for (const ch of String(n)) {
+//     prod *= Number(ch);
+//     if (prod === 0) return 0; // 早期終了（任意）
+//   }
+//   return prod;
+// }
+// console.log(func14_loop(123));
+
+// 2) while + 整数計算(競プロ用)
+// function func14_math(n) {
+//   let product = 1;
+//   while (n > 0) {
+//     product *= n % 10;     // 下1桁
+//     n = Math.floor(n / 10); // 1桁落とす
+//   }
+//   return product;
+// }
+
+// ※ Math.floor の代わりに parseInt() でもOK。
+
+// 3) 再起関数
+// function func14_recursive(n) {
+//   if (n < 10) return n; // 1桁ならそれ自体
+//   return (n % 10) * func14_recursive(Math.floor(n / 10));
+// }
+
+// 【コメント】
+// 今回は昨日の関数をちょっと小細工したらできたから正解した。
+// GPTは色んな別解を教えてくれるから、覚えてなくても徐々に
+// 蓄積していっていつか覚醒すると思うから、その時まで踏ん張ろうと思う。
+
+// Day15（2025.11.05）
+// 整数 N15 が与えられます。
+// その各桁の合計を求め、
+// その合計が偶数なら "Even", 奇数なら "Odd" と出力してください。

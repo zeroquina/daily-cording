@@ -34,3 +34,47 @@ echo(func13(123));
 // Day14（2025.11.04）
 // 正の整数 N が与えられます。
 // この数の 各桁を掛け合わせた結果 を出力してください。
+
+function func14($n) {
+    $N14 = str_split(strval($n));
+    return array_reduce($N14, function($a, $c) {
+        return $a * intval($c);
+    }, 1);
+}
+
+echo func14(5846);
+
+// 正解👏
+// 別解がいくつかあったので記載。
+
+// 1) foreachループ
+
+// function func14_loop($n) {
+//     $product = 1;
+//     foreach (str_split((string)$n) as $digit) {
+//         $product *= (int)$digit;
+//     }
+//     return $product;
+// }
+
+// 2) while + 整数計算(競プロ用)
+
+// function func14_math($n) {
+//     $product = 1;
+//     while ($n > 0) {
+//         $product *= $n % 10;
+//         $n = intdiv($n, 10); // 整数除算（PHP7以降）
+//     }
+//     return $product;
+// }
+
+// 3) 再帰関数
+// function func14_recursive($n) {
+//     if ($n < 10) return $n;
+//     return ($n % 10) * func14_recursive(intdiv($n, 10));
+// }
+
+// Day15（2025.11.05）
+// 整数 N15 が与えられます。
+// その各桁の合計を求め、
+// その合計が偶数なら "Even", 奇数なら "Odd" と出力してください。
