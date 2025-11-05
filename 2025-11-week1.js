@@ -87,7 +87,31 @@ console.log(func14(123));
 // GPTは色んな別解を教えてくれるから、覚えてなくても徐々に
 // 蓄積していっていつか覚醒すると思うから、その時まで踏ん張ろうと思う。
 
-// Day15（2025.11.05）
+// Day15（2025.11.05）16:40 ～ 17:07
 // 整数 N15 が与えられます。
 // その各桁の合計を求め、
 // その合計が偶数なら "Even", 奇数なら "Odd" と出力してください。
+
+function func15(n) {
+    let sum15 = 0;
+    while (n > 0) {
+        sum15 += n % 10;
+        n = Math.floor(n / 10);
+    }
+    return (sum15 % 2 === 0) ? sum15 + ' Even' : sum15 + ' Odd';
+}
+
+console.log(func15(124));
+
+// 正解👏
+// 別解はコチラ↓↓↓
+// function func15_alt(n) {
+//     const sum = [...String(n)].reduce((a, c) => a + Number(c), 0);
+//     return (sum % 2 === 0) ? `${sum} Even` : `${sum} Odd`;
+// }
+
+// console.log(func15_alt(124));
+
+// Day16（2025.11.06）配列から偶数だけを取り出せ！
+// 整数の配列 arr が与えられます。
+// その中から 偶数だけを抽出し、新しい配列として出力してください。

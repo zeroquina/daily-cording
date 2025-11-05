@@ -78,3 +78,41 @@ echo func14(5846);
 // 整数 N15 が与えられます。
 // その各桁の合計を求め、
 // その合計が偶数なら "Even", 奇数なら "Odd" と出力してください。
+
+function func15($n) {
+    $sum15 = 0;
+    while ($n > 0) {
+        $sum15 += $n % 10;
+        $n = intdiv($n, 10);
+    }
+    return ($sum15 % 2 === 0) ? $sum15 + ' Even' : $sum15 + ' Odd';
+}
+
+echo func15(124);
+
+// 超惜しい💦
+// 正解はコレ↓↓↓
+// function func15($n) {
+//     $sum15 = 0;
+//     while ($n > 0) {
+//         $sum15 += $n % 10;
+//         $n = intdiv($n, 10);
+//     }
+//     return ($sum15 % 2 === 0) ? $sum15 . ' Even' : $sum15 . ' Odd';
+// }
+
+// echo func15(124);
+// ↑ 「+」じゃなくて「.」で連結させる！
+
+// 別解はコチラ↓↓↓
+// function func15_alt($n) {
+//     $digits = str_split($n);
+//     $sum = array_sum($digits);
+//     return ($sum % 2 === 0) ? $sum . ' Even' : $sum . ' Odd';
+// }
+
+// echo func15_alt(124);
+
+// Day16（2025.11.06）配列から偶数だけを取り出せ！
+// 整数の配列 arr が与えられます。
+// その中から 偶数だけを抽出し、新しい配列として出力してください。
