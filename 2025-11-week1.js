@@ -124,5 +124,29 @@ console.log(func15(124));
 // 短縮版の別解もあるので記載。
 // console.log([1,2,3,4,5,6,7,8,9,10].filter(x => !(x % 2)));
 
-// Day17（2025.11.07）：合計値を求めよう
+// Day17（2025.11.07）：合計値を求めよう 9:00 ～ 9:05
 // 1 から 100 までの整数をすべて足し合わせた合計を求めてください。
+
+const N16 = 100
+let sum16 = 0;
+
+for(i = 1; i<=N16; i++) {
+    sum16+= i;
+}
+
+console.log(sum16);
+
+// // 正解👏
+// 短縮版の別解もあるので記載。
+// 1) 数学的アプローチ
+// const arr = Array.from({ length: 100 }, (_, i) => i + 1);
+// const sum = arr.reduce((a, c) => a + c, 0);
+
+// console.log(sum); // 5050
+
+// 2) filter & reduce
+// const sumEven = Array.from({ length: 100 }, (_, i) => i + 1)
+//   .filter(n => n % 2 === 0)
+//   .reduce((a, c) => a + c, 0);
+
+// console.log(sumEven);
