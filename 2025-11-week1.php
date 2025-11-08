@@ -165,3 +165,48 @@ echo $sum16;
 // $sum = array_sum($arr);
 
 // echo $sum;
+
+// Day18（2025.11.08）：倍数の合計値（8:25 ～ 8:46）
+// 1 から N = 100 までの整数のうち、
+// 「3の倍数または5の倍数」の合計を求めてください。
+// 【ループ】
+$N17 = 100;
+$sum17 = 0;
+
+for($i = 1; $i <= $N17; $i++) {
+    if ($i % 3 === 0 || $i % 5 === 0) {
+        $sum17 += $i;
+    }
+}
+echo $sum17;
+
+【別解】range() & array_filter()
+// $ant_N17_01 = 100;
+$ant_arr17_01 = range(1, 100);
+$ant_N17_01 = array_filter($ant_arr17_01, function($val) {
+    return $val % 3 === 0 || $val % 5 === 0;
+});
+echo array_sum($ant_N17_01);
+
+// 全部正解👏
+// ちょっとした補足として、キーを詰めるならarray_values()を挟むと良いらしい。
+// $values = array_values($ant_N17_01);
+// echo array_sum($values);
+
+// あと、いくつか別解もあったので記載↓↓↓
+// 【クロージャー】
+// $ant_N17_01 = array_filter($ant_arr17_01, fn($v) => $v % 3 === 0 || $v % 5 === 0);
+// echo array_sum($ant_N17_01);
+
+// 【数式】
+// function sumMultiples($N, $m) {
+//     $k = intdiv($N, $m);
+//     return $m * $k * ($k + 1) / 2;
+// }
+// $N = 100;
+// $total = sumMultiples($N, 3) + sumMultiples($N, 5) - sumMultiples($N, 15);
+// echo $total; // 2418
+
+// Day19（2025.11.09）
+// 1 から N までの整数のうち、
+// 「各桁の数字の合計が偶数」になるものの個数を求めてください。

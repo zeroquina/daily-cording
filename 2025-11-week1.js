@@ -150,3 +150,35 @@ console.log(sum16);
 //   .reduce((a, c) => a + c, 0);
 
 // console.log(sumEven);
+
+// Day18（2025.11.08）：倍数の合計値 8:20 ～ 8:25(別解8:25 ～ )
+// 1 から N = 100 までの整数のうち、
+// 「3の倍数または5の倍数」の合計を求めてください。
+// 【ループ】
+const N17 = 100;
+let sum17 = 0;
+
+for(let i = 1; i <= N17; i++) {
+    if (i % 3 === 0 || i % 5 === 0) {
+        sum17 += i;
+    }
+}
+console.log(sum17);
+
+// 【別解（array() & filter()）】
+const ant17_01 = Array.from({ length: 100 }, (_, i) => i + 1 ).filter(n => n % 3 === 0 || n % 5 === 0).reduce((a, c) => a + c, 0);
+console.log(ant17_01);
+
+// 全部正解👏
+// 数式版の回答もあったので記載↓↓↓
+// function sumMultiples(N, m) {
+//   const k = Math.floor(N / m);
+//   return m * k * (k + 1) / 2;
+// }
+// const N = 100;
+// const total = sumMultiples(N, 3) + sumMultiples(N, 5) - sumMultiples(N, 15);
+// console.log(total); // 2418
+
+// Day19（2025.11.09）
+// 1 から N までの整数のうち、
+// 「各桁の数字の合計が偶数」になるものの個数を求めてください。
